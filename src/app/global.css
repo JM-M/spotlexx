@@ -27,5 +27,5 @@ body {
 }
 
 .container {
-  @apply px-5;
+  @apply w-full px-5;
 }
