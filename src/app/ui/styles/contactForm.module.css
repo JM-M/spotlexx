@@ -1,0 +1,29 @@
+.form {
+  @apply max-w-[500px] mx-auto mb-10 p-5 bg-neutral-800/40 rounded-lg;
+}
+
+.fieldWrapper {
+  @apply mb-5;
+}
+
+.label,
+.input {
+  @apply block;
+}
+
+.label {
+  @apply mb-2 flex gap-2 items-center;
+}
+
+.input,
+.textarea {
+  @apply h-12 w-full px-3 bg-neutral-700 rounded-lg focus:outline-none focus:bg-neutral-800;
+}
+
+.textarea {
+  @apply py-3;
+}
+
+.btn {
+  @apply block h-14 w-full mt-10 bg-neutral-800 rounded-lg;
+}

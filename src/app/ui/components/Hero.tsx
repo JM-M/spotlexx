@@ -1,5 +1,5 @@
 'use client';
-import { useState, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
 import { useInView } from 'react-intersection-observer';
@@ -26,12 +26,11 @@ const Hero = ({ setNavOpaque }: Props) => {
   return (
     <>
       <div
-        className='fixed z-0 max-h-screen overflow-y-hidden'
+        className='fixed -z-10 max-h-screen overflow-y-hidden'
         style={{ opacity: `${opacity}%` }}
       >
-        <Image src={heroImage} alt='Sam' />
-        <div className='absolute top-0 left-0 h-full w-full bg-black bg-opacity-50'></div>
-        <div className='absolute -bottom-1 left-0 w-full h-[200px] z-20 bg-gradient-to-t from-neutral-500'></div>
+        <Image src={heroImage} alt='Sam' className='to-transparent' />
+        <div className='absolute top-0 left-0 h-full w-full bg-gradient-to-b from-black via-neutral-900/40 via-70% to-neutral-700 z-10'></div>
       </div>
       <div ref={ref} className='absolute opacity-0 h-1/2 w-full -z-50'></div>
       <section className='relative -top-[50px] w-full pt-52 pb-10 flex gap-10 md:pt-56 md:pb-14'>
@@ -39,7 +38,7 @@ const Hero = ({ setNavOpaque }: Props) => {
           <h1
             className={cx(
               yesevaOne.className,
-              'max-w-[600px] mx-auto mb-4 text-4xl text-center text-white font-extrabold capitalize md:text-5xl lg:leading-[60px]'
+              'max-w-[600px] mx-auto mb-4 text-4xl text-center font-extrabold capitalize md:text-5xl lg:leading-[60px]'
             )}
           >
             <span>Beautiful </span>
@@ -63,7 +62,7 @@ const Hero = ({ setNavOpaque }: Props) => {
               wrapper='span'
               speed={50}
               repeat={Infinity}
-              className='inline-block min-h-[35px] min-w-[7ch] text-transparent bg-clip-text bg-gradient-to-r from-red-200 to-blue-200'
+              className='inline-block min-h-[42px] min-w-[11ch] text-transparent bg-clip-text bg-gradient-to-r from-red-200 to-blue-200'
               cursor={false}
             />{' '}
             <span>captured</span>

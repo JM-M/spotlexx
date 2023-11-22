@@ -21,7 +21,7 @@
 }
 
 body {
-  @apply bg-neutral-500;
+  @apply bg-neutral-700 text-white;
 }
 
 .container {
