@@ -1,13 +1,12 @@
 import React from 'react';
 
 type Props = {
-  open: boolean;
+  isOpen: boolean;
   openMenu: Function;
-  closeMenu: Function;
 };
 
-const NavMenuIcon = ({ open, openMenu, closeMenu }: Props) => {
-  if (open)
+const NavMenuIcon = ({ isOpen, openMenu }: Props) => {
+  if (isOpen)
     return (
       <svg
         viewBox='0 0 24 24'
@@ -15,7 +14,7 @@ const NavMenuIcon = ({ open, openMenu, closeMenu }: Props) => {
         height={20}
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
-        onClick={() => closeMenu()}
+        className='pointer-events-none sm:invisible'
       >
         <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
         <g
@@ -40,6 +39,7 @@ const NavMenuIcon = ({ open, openMenu, closeMenu }: Props) => {
       height={20}
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      className='sm:invisible'
       onClick={() => openMenu()}
     >
       <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>

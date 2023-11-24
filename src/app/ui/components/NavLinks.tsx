@@ -1,20 +1,63 @@
-import React from 'react';
+import { useRef } from 'react';
+import Link from 'next/link';
+import cx from 'classnames';
+import useOutsideClick from '@/app/hooks/useOutsideClick';
+import styles from '../styles/navLinks.module.css';
 
-type Props = { open: boolean };
+type Props = {
+  isOpen: boolean;
+  closeMenu: Function;
+  navOpaque: boolean;
+  activeSection: string;
+};
 
-const NavLinks = ({ open }: Props) => {
-  if (!open) return null;
+const links = [
+  {
+    name: 'About me',
+    hash: '#about',
+  },
+  {
+    name: 'Gallery',
+    hash: '#gallery',
+  },
+  {
+    name: 'Contact',
+    hash: '#contact',
+  },
+];
+
+const NavLinks = ({ isOpen, closeMenu, navOpaque, activeSection }: Props) => {
+  const ref = useRef(null);
+  useOutsideClick({ onOutsideClick: closeMenu, elRef: ref });
+
   return (
-    <ul className='absolute left-0 top-16 w-full flex flex-col gap-3 p-5 text-[inherit] text-center rounded-[inherit] bg-[inherit] bg-opacity-[inherit] border border-[inherit] background-blur-[inherit]'>
-      <li className='h-12 w-full flex items-center'>
-        <span className='w-full'>Gallery</span>
-      </li>
-      <li className='h-12 w-full flex items-center'>
-        <span className='w-full'>About me</span>
-      </li>
-      <li className='h-12 w-full flex items-center'>
-        <span className='w-full'>Contact</span>
-      </li>
+    <ul
+      ref={ref}
+      className={cx(
+        styles.list,
+        {
+          'bg-black/80': !navOpaque,
+          'bg-neutral-800/70': navOpaque,
+          [`${styles.listOpen}`]: isOpen,
+        },
+        'sm:bg-inherit'
+      )}
+    >
+      {links.map((link) => {
+        const { name, hash } = link;
+        // console.log(`#${activeSection}`, hash);
+        return (
+          <li
+            className={cx(styles.item, {
+              [`${styles.itemActive}`]: `#${activeSection}` === hash,
+            })}
+          >
+            <Link href={hash} className={styles.link}>
+              {name}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 };

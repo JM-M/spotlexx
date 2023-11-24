@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import cx from 'classnames';
 
+import ContactFormResponse from './ContactFormResponse';
 import Textarea from './Textarea';
 import ContactLinks from './ContactLinks';
 import ErrorText from './ErrorText';
@@ -28,20 +29,24 @@ const ContactForm = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitted },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const { sendMessageMutation } = useContactForm();
-  const { isLoading, mutate: sendMessage } = sendMessageMutation;
+  const { isLoading, mutate: sendMessage, data } = sendMessageMutation;
 
   const submit = (values: FormValuesType) => {
-    console.log(values);
+    sendMessage(values);
   };
 
   return (
-    <div>
+    <div className='relative'>
+      {isSubmitted && !!data && (
+        <ContactFormResponse response={data} resetForm={reset} />
+      )}
       <form className={styles.form} onSubmit={handleSubmit(submit)}>
         <h2 className={cx(yesevaOne.className, 'mb-10 text-2xl text-center')}>
           Lets talk
@@ -99,7 +104,9 @@ const ContactForm = () => {
           />
           <ErrorText text={errors.message?.message} />
         </div>
-        <button className={styles.btn}>Submit</button>
+        <button className={styles.btn} disabled={isLoading}>
+          Submit{isLoading ? 'ting...' : null}
+        </button>
       </form>
     </div>
   );

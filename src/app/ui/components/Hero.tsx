@@ -38,7 +38,7 @@ const Hero = ({ setNavOpaque }: Props) => {
           <h1
             className={cx(
               yesevaOne.className,
-              'max-w-[600px] mx-auto mb-4 text-4xl text-center font-extrabold capitalize md:text-5xl lg:leading-[60px]'
+              'max-w-[260px] mx-auto mb-4 text-4xl text-center font-extrabold capitalize md:max-w-[400px] md:text-6xl lg:leading-[60px]'
             )}
           >
             <span>Beautiful </span>
@@ -62,9 +62,9 @@ const Hero = ({ setNavOpaque }: Props) => {
               wrapper='span'
               speed={50}
               repeat={Infinity}
-              className='inline-block min-h-[42px] min-w-[11ch] text-transparent bg-clip-text bg-gradient-to-r from-red-200 to-blue-200'
+              className='inline-block min-w-[11ch] pr-[1ch] text-transparent text-center bg-clip-text bg-gradient-to-r from-red-200 to-blue-200'
               cursor={false}
-            />{' '}
+            />
             <span>captured</span>
           </h1>
         </div>

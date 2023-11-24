@@ -24,6 +24,10 @@ body {
   @apply bg-neutral-700 text-white;
 }
 
+button {
+  @apply disabled:opacity-50;
+}
+
 .container {
   @apply w-full mx-auto px-5;
 }

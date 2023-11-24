@@ -12,7 +12,7 @@
 }
 
 .label {
-  @apply mb-2 flex gap-2 items-center;
+  @apply mb-2 flex gap-1 items-center;
 }
 
 .input,

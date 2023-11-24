@@ -1,10 +1,23 @@
-import cx from 'classnames';
+import { useRef, useLayoutEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import ContactForm from './ContactForm';
-import { tangerine } from '../fonts';
 
-const Footer = () => {
+type Props = { onInView: Function };
+
+const Footer = ({ onInView }: Props) => {
+  const { ref, entry, inView } = useInView({
+    /* Optional options */
+    threshold: [...Array(100)].map((_, i) => i / 100),
+  });
+
+  const onInViewRef = useRef(onInView);
+
+  useLayoutEffect(() => {
+    if (inView && onInViewRef.current) onInViewRef.current();
+  }, [inView]);
+
   return (
-    <footer className='container py-10'>
+    <footer ref={ref} className='container pt-20 pb-10' id='contact'>
       <ContactForm />
       <div className='text-center'>
         <div className='pt-3'>
