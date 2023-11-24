@@ -51,6 +51,7 @@ const NavLinks = ({ isOpen, closeMenu, navOpaque, activeSection }: Props) => {
             className={cx(styles.item, {
               [`${styles.itemActive}`]: `#${activeSection}` === hash,
             })}
+            onClick={() => closeMenu()}
           >
             <Link href={hash} className={styles.link}>
               {name}

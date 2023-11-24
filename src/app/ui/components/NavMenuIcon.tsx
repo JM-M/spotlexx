@@ -40,7 +40,9 @@ const NavMenuIcon = ({ isOpen, openMenu }: Props) => {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
       className='sm:invisible'
-      onClick={() => openMenu()}
+      onClick={() => {
+        openMenu();
+      }}
     >
       <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
       <g

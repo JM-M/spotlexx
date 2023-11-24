@@ -20,16 +20,11 @@ const useOutsideClick = ({
       }
     };
 
-    const eventTypes = ['click', 'touchstart'];
+    const eventType = 'click';
 
-    eventTypes.forEach((type) => {
-      document.addEventListener(type, handleClick, true);
-    });
+    document.addEventListener(eventType, handleClick, true);
 
-    return () =>
-      eventTypes.forEach((type) => {
-        document.removeEventListener(type, handleClick, true);
-      });
+    return () => document.removeEventListener(eventType, handleClick, true);
   }, [elRef]);
 
   return null;
