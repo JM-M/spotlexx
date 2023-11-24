@@ -26,14 +26,25 @@ const About = ({ onInView }: Props) => {
       </div>
       <div className='text-center'>
         <h2 className={cx(yesevaOne.className, 'mb-2 text-2xl font-bold')}>
-          Hi, I{"'"}m Sam
+          Hi, I{"'"}m Sam, I{"'"}m SPOTLEXX
         </h2>
-        <p className='leading-8 max-w-[500px] mx-auto'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut doloribus
-          consequatur sunt architecto atque voluptatibus quas dolores quidem
-          reprehenderit pariatur quam aspernatur quaerat, aliquid veniam
-          distinctio eveniet repudiandae similique amet?
-        </p>
+        <div className='leading-8 max-w-[500px] mx-auto'>
+          <p className='mb-2'>
+            SPOTLEXX means SPOTLESS. SPOTLEXX is a photography brand that deals
+            with the aim of giving a true reflection of how beauty can be
+            portrayed in jpegs.
+          </p>
+          <p className='mb-2'>
+            SPOTLEXX creatively shows you how well you should appreciate your
+            creation and existence after seeing beautiful jpegs of you.
+          </p>
+          <p className='mb-2'>
+            SPOTLEXX helps you create moments and keep memories via beautiful
+            pictorial documentations.
+          </p>
+          <p className='mb-2'>SPOTLEXX breathes life into your pictures </p>
+          <p className='mb-2'>SPOTLEXX is SPOTLESS</p>
+        </div>
       </div>
     </section>
   );

@@ -62,7 +62,7 @@ const Hero = ({ setNavOpaque }: Props) => {
               wrapper='span'
               speed={50}
               repeat={Infinity}
-              className='inline-block min-w-[11ch] pr-[1ch] text-transparent text-center bg-clip-text bg-gradient-to-r from-red-200 to-blue-200'
+              className='inline-block min-w-[11ch] text-transparent text-center bg-clip-text bg-gradient-to-r from-red-200 to-blue-200'
               cursor={false}
             />
             <span>captured</span>
