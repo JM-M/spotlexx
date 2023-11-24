@@ -10,7 +10,7 @@ const Textarea = ({ autogrow, ...defaultProps }: Props) => {
 
   useLayoutEffect(() => {
     if (autogrow && ref.current) autosize(ref.current);
-  }, [autogrow, ref.current]);
+  }, [autogrow]);
 
   return <textarea ref={ref} {...defaultProps} />;
 };

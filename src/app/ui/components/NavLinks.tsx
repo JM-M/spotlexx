@@ -45,9 +45,9 @@ const NavLinks = ({ isOpen, closeMenu, navOpaque, activeSection }: Props) => {
     >
       {links.map((link) => {
         const { name, hash } = link;
-        // console.log(`#${activeSection}`, hash);
         return (
           <li
+            key={hash}
             className={cx(styles.item, {
               [`${styles.itemActive}`]: `#${activeSection}` === hash,
             })}

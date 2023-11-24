@@ -1,8 +1,4 @@
-import {
-  useRef,
-  useEffect,
-  MutableRefObject,
-} from 'react';
+import { useRef, useEffect, MutableRefObject } from 'react';
 
 const useOutsideClick = ({
   onOutsideClick,
@@ -34,7 +30,7 @@ const useOutsideClick = ({
       eventTypes.forEach((type) => {
         document.removeEventListener(type, handleClick, true);
       });
-  }, []);
+  }, [elRef]);
 
   return null;
 };

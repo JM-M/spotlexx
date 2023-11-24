@@ -17,7 +17,7 @@ const Hero = ({ setNavOpaque }: Props) => {
 
   useLayoutEffect(() => {
     setNavOpaque(!inView);
-  }, [inView]);
+  }, [inView, setNavOpaque]);
 
   let opacity = 100;
   if (!isNaN(entry?.intersectionRatio!))
